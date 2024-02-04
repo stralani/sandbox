@@ -1,0 +1,15 @@
+.list {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  gap: 1rem;
+  background-color: yellowgreen;
+  width: fit-content;
+}
+.background {
+  background-color: aqua;
+  height: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

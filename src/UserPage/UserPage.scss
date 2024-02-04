@@ -1,0 +1,28 @@
+.userCard:hover {
+  background-color: #e8e8e8;
+  cursor: pointer;
+}
+
+.userCard {
+  width: fit-content;
+}
+.userCard-selected {
+  background-color: #1b68b3;
+  width: fit-content;
+}
+.userPageContainer {
+  display: flex;
+  width: 100%;
+}
+.rightContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.leftContainer {
+  height: 100vh;
+  overflow-y: auto;
+  min-width: fit-content;
+}
