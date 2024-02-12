@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, lazy, Suspense } from "react";
 import { useFetch } from "../Hooks/useFetch";
 import { ProfileCard } from "../ProfileCard";
 import "./UserPage.scss";
 import UserForm from "../UserForm/UserForm";
 import { ApiUrl } from "../common";
+
+const LazyUserForm = lazy(() => import("../UserForm/UserForm"));
 
 function UserPage() {
   const { data, loading } = useFetch(ApiUrl);
@@ -33,11 +35,13 @@ function UserPageContent({ data }) {
       </div>
 
       <div className="rightContainer">
-        {selected ? (
-          <UserForm userId={selected} />
-        ) : (
-          <h1>"nothing been clicked yet"</h1>
-        )}
+        <Suspense fallback={<div>Loading</div>}>
+          {selected ? (
+            <LazyUserForm userId={selected} />
+          ) : (
+            <h1>"nothing been clicked yet"</h1>
+          )}
+        </Suspense>
       </div>
     </div>
   );
